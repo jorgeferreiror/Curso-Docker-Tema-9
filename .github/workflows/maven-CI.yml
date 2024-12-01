@@ -5,24 +5,23 @@ on:
     branches: 
       - Development
 
-  jobs:
-    name: CI_Test_And_Build
+jobs:
 
-      test_and_build:
-        name: CI_Test_And_Build1
-        runs-on: ubuntu-latest
+  test_and_build:
 
-        steps:
-        - name: Hacemos Checkuot del repo de Git
-          uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hacemos Checkuot del repo de Git
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+
+      - name: Test project with Maven
+        run: mvn -B test
     
-        - name: Set up JDK 8
-          uses: actions/setup-java@v1
-          with:
-            java-version: 8
-
-        - name: Test project with Maven
-          run: mvn -B test
-      
-        - name: Build project with Maven
-          run: mvn -B package 
+      - name: Build project with Maven
+        run: mvn -B package 
