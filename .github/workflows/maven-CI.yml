@@ -2,10 +2,12 @@ name: Maven CI/CD
 
 on:
   push:
-    branches: [ Development ]
+    branches: 
+      - Development
 
   jobs:
     test_and_build:
+      name: CI_Test_And_Build
       runs-on: ubuntu-latest
 
       steps:
