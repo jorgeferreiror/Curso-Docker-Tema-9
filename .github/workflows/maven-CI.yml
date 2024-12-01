@@ -6,7 +6,8 @@ on:
       - Development
 
   jobs:
-
+    name: CI_Test_And_Build
+    
     test_and_build:
 
       runs-on: ubuntu-latest
